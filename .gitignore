@@ -1,4 +1,4 @@
-*.o
+~/*.o
 cmake-build-debug
 CMakeLists.txt
 .*
