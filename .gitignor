@@ -1,7 +1,0 @@
-*.o
-cmake-build-debug
-CMakeLists.txt
-.idea
-a.out
-philo_one
-philo_two
