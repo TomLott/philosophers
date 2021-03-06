@@ -7,4 +7,4 @@ add_executable(philo_two
         philo_two.c
         philo_two.h
         utils_1.c
-        utils_2.c init.c)
+        utils_2.c init.c init_sem.c run.c)

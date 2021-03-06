@@ -11,9 +11,7 @@ philo_two/CMakeLists.txt
 .*
 philo_one/.*
 philo_two/.*
-
 philo_one/a.out
 philo_two/a.out
-
 philo_one/philo_one
 philo_two/philo_two

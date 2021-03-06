@@ -81,10 +81,16 @@
 		<Unit filename="/Users/itollett/philosophers/philo_two/init.c">
 			<Option target="philo_two"/>
 		</Unit>
+		<Unit filename="/Users/itollett/philosophers/philo_two/init_sem.c">
+			<Option target="philo_two"/>
+		</Unit>
 		<Unit filename="/Users/itollett/philosophers/philo_two/philo_two.c">
 			<Option target="philo_two"/>
 		</Unit>
 		<Unit filename="/Users/itollett/philosophers/philo_two/philo_two.h">
+			<Option target="philo_two"/>
+		</Unit>
+		<Unit filename="/Users/itollett/philosophers/philo_two/run.c">
 			<Option target="philo_two"/>
 		</Unit>
 		<Unit filename="/Users/itollett/philosophers/philo_two/utils_1.c">

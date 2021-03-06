@@ -6,12 +6,13 @@
 # include <pthread.h>
 # include <stdlib.h>
 # include <sys/time.h>
+# include <semaphore.h>
 
 typedef struct	s_semafor
 {
-	pthread_mutex_t	*fork;
-	pthread_mutex_t	*sem_wr;
-	pthread_mutex_t	*sem_meals_amount;
+	sem_t	*fork;
+	sem_t	*sem_wr;
+	sem_t	*sem_meals_amount;
 }				t_semafor;
 
 typedef enum
@@ -25,8 +26,8 @@ typedef struct	s_args
 {
 	t_status	status;
 	int			num;
-	int 		die_t;
-	int 		eat_t;
+	long 		die_t;
+	long 		eat_t;
 	long 		sleep_t;
 	long 		need_to_eat;
 	long		meals_amount;
@@ -43,9 +44,13 @@ typedef struct	s_philo
 }				t_philo;
 
 long			get_time(void);
+void			ft_eat(t_philo *p);
 int 			ft_error(char *str);
 int				ft_init_args(char **argv, t_args *ar);
+int			 	ft_init_sem(t_args *ar, t_semafor *semafor);
+t_philo			*ft_init_thread(t_args *ar, t_semafor *sem);
 void			ft_message(char *s, t_philo *philo);
+int				ft_start(t_philo *p);
 size_t			ft_strlen(const char *string);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);

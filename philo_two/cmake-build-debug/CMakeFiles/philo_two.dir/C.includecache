@@ -6,5 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/Users/itollett/philosophers/philo_two/philo_two.c
+/Users/itollett/philosophers/philo_two/philo_two.h
+stdio.h
+-
+unistd.h
+-
+pthread.h
+-
+stdlib.h
+-
+sys/time.h
+-
+semaphore.h
+-
+
+/Users/itollett/philosophers/philo_two/run.c
+philo_two.h
+/Users/itollett/philosophers/philo_two/philo_two.h
 

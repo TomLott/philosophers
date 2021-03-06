@@ -170,6 +170,33 @@ init.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/init.c.s
 .PHONY : init.c.s
 
+init_sem.o: init_sem.c.o
+
+.PHONY : init_sem.o
+
+# target to build an object file
+init_sem.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/init_sem.c.o
+.PHONY : init_sem.c.o
+
+init_sem.i: init_sem.c.i
+
+.PHONY : init_sem.i
+
+# target to preprocess a source file
+init_sem.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/init_sem.c.i
+.PHONY : init_sem.c.i
+
+init_sem.s: init_sem.c.s
+
+.PHONY : init_sem.s
+
+# target to generate assembly for a file
+init_sem.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/init_sem.c.s
+.PHONY : init_sem.c.s
+
 philo_two.o: philo_two.c.o
 
 .PHONY : philo_two.o
@@ -196,6 +223,33 @@ philo_two.s: philo_two.c.s
 philo_two.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/philo_two.c.s
 .PHONY : philo_two.c.s
+
+run.o: run.c.o
+
+.PHONY : run.o
+
+# target to build an object file
+run.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/run.c.o
+.PHONY : run.c.o
+
+run.i: run.c.i
+
+.PHONY : run.i
+
+# target to preprocess a source file
+run.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/run.c.i
+.PHONY : run.c.i
+
+run.s: run.c.s
+
+.PHONY : run.s
+
+# target to generate assembly for a file
+run.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/run.c.s
+.PHONY : run.c.s
 
 utils_1.o: utils_1.c.o
 
@@ -263,9 +317,15 @@ help:
 	@echo "... init.o"
 	@echo "... init.i"
 	@echo "... init.s"
+	@echo "... init_sem.o"
+	@echo "... init_sem.i"
+	@echo "... init_sem.s"
 	@echo "... philo_two.o"
 	@echo "... philo_two.i"
 	@echo "... philo_two.s"
+	@echo "... run.o"
+	@echo "... run.i"
+	@echo "... run.s"
 	@echo "... utils_1.o"
 	@echo "... utils_1.i"
 	@echo "... utils_1.s"
