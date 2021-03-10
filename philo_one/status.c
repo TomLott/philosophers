@@ -6,10 +6,10 @@ void 	*full_status(void *p)
 	int 	i;
 
 	philo = (t_philo *)p;
-	while (philo[0].ar->status != DEAD && philo[0].ar->status != FULL)
+	while (philo[0].ar->status == ALIVE)
 	{
 		i = 0;
-		while (i < philo[0].ar->num && philo[0].ar->status != DEAD && philo[0].ar->status != FULL)
+		while (i < philo[0].ar->num && philo->ar->status == ALIVE)
 		{
 			if (philo[i].ar->meals_amount == (philo[0].ar->num * philo[0].ar->need_to_eat))
 			{
@@ -34,7 +34,7 @@ void 	*dead_status(void *p)
 	philo = (t_philo *)p;
 	while (philo->ar->status == ALIVE)
 	{
-		if (get_time() > philo->last + philo->ar->die_t)
+		if (get_time() > (philo->last + philo->ar->die_t))
 		{
 			ft_message(" dead\n", philo);
 			pthread_mutex_lock(&philo->mutex->mut_status);

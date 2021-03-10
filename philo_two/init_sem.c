@@ -3,7 +3,7 @@
 int 		ft_init_sem(t_args *ar, t_semafor *semafor)
 {
 	sem_unlink("fork");
-	semafor->fork = sem_open("fork", O_CREAT | O_EXCL, 0755, ar->num / 2 + (ar->num % 2));
+	semafor->fork = sem_open("fork", O_CREAT | O_EXCL, 0755, ar->num / 2);
 	sem_unlink("write");
 	semafor->sem_wr = sem_open("write", O_CREAT | O_EXCL, 0755, 1);
 	sem_unlink("meals_counter");

@@ -30,7 +30,7 @@ int		ft_start(t_philo *philo, t_args *ar)
 	while (++i < ar->num)
 	{
 		fl = pthread_create(&philo[i].pthread, NULL, ft_actions, &philo[i]);
-		if (fl)
+		if (fl < 0)
 			return (ft_error("Error: something went wrong "
 			"during thread creation.\n"));
 		usleep(20);
@@ -49,8 +49,10 @@ void	ft_finish(t_philo *philo, t_mutex *mut)
 
 	i = -1;
 	while (++i < philo->ar->num)
-		pthread_mutex_destroy(&mut->fork[i]);
+		pthread_mutex_destroy(&(mut->fork)[i]);
 	pthread_mutex_destroy(&mut->mut_status);
 	pthread_mutex_destroy(&mut->mut_wr);
 	pthread_mutex_destroy(&mut->mut_meals_amount);
+	free(philo);
+	free(mut->fork);
 }

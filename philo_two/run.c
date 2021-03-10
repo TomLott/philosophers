@@ -28,12 +28,12 @@ void 	*ft_dead(void *philo)
 	t_philo *p;
 
 	p = (t_philo *)philo;
-	while(p[0].ar->status == ALIVE)
+	while(p->ar->status == ALIVE)
 	{
-		if (get_time() > p[0].last + p[0].ar->die_t)
+		if (get_time() > (p->last + p->ar->die_t))
 		{
 			ft_message(" is died\n", p);
-			p[0].ar->status = DEAD;
+			p->ar->status = DEAD;
 		}
 	}
 	return (NULL);
@@ -69,7 +69,7 @@ int		ft_start(t_philo *p)
 		flag = pthread_create(&p[i].thread,NULL, ft_action, &p[i]);
 		if (flag)
 			return (ft_error("Error: thread creating error\n"));
-		usleep(20);
+		usleep(1);
 	}
 	pthread_create(&run, NULL, full_status, (void *)p);
 	pthread_detach(run);

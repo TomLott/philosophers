@@ -42,15 +42,15 @@ long	stup_atoi(char *num)
 	i = 0;
 	fl = 0;
 	len = ft_strlen(num);
-	if (len > 20)
+	if (len > 11)
 		fl = 1;
-	if ((num[i] == '-' || num[i] == '+') && ++i)
-		(num[i - 1] == '-') ? (sign = -1) : 1;
+	if ((num[i] == '-') && ++i)
+		sign = -1;
 	while (num[i] >= '0' && num[i] <= '9')
 		res = res * 10 + (num[i++] - 48);
-	if ((len >= 19 && res > 9223372036854775807 && sign == 1) || \
-	((res / 10 >= (unsigned long long)(922337203685477580) \
-	&& res % 10 > 8) && sign == -1 && len >= 20))
+	if ((len >= 10 && res > 2147483647 && sign == 1) || \
+	((res / 10 >= 214748364 \
+	&& res % 10 >= 8) && sign == -1 && len >= 11))
 		fl = 1;
 	if (fl != 1 && i == len && i != 0)
 		return (sign * res);

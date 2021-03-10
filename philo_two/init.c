@@ -30,7 +30,7 @@ int		ft_init_args(char **argv, t_args *ar)
 	ar->num = (int)stup_atoi(argv[1]);
 	if (ar->num < 2)
 		return (1);
-	ar->die_t = stup_atoi(argv[2]) * 1000;
+	ar->die_t = stup_atoi(argv[2]);
 	ar->eat_t = stup_atoi(argv[3]) * 1000;
 	ar->sleep_t = stup_atoi(argv[4]) * 1000;
 	if (!argv[5])

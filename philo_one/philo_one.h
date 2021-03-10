@@ -25,7 +25,7 @@ typedef enum {
 typedef struct	s_args
 {
 	int			num;
-	int 		die_t;
+	long 		die_t;
 	long 		eat_t;
 	long 		sleep_t;
 	long 		need_to_eat;
@@ -63,6 +63,6 @@ int				ft_start(t_philo *philo, t_args *ar);
 size_t			ft_strlen(const char *string);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
-int				stup_atoi(char *num);
+long			stup_atoi(char *num);
 
 #endif

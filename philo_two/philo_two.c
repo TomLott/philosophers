@@ -15,12 +15,12 @@ void	ft_eat(t_philo *p)
 	sem_wait(p->sem->fork);
 	ft_message(" has taken a forks\n", p);
 	ft_message(" is eating\n", p);
-	p->last = get_time();
+	//p->last = get_time();
 	usleep(p->ar->eat_t);
+	p->last = get_time();
 	sem_wait(p->sem->sem_meals_amount);
 	p->ar->meals_amount++;
 	sem_post(p->sem->sem_meals_amount);
-	sem_post(p->sem->fork);
 	sem_post(p->sem->fork);
 }
 

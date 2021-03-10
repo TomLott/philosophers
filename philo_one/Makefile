@@ -18,3 +18,6 @@ $(NAME): $(OBJS)
 
 .c.o:
 		gcc $(FLAGS) -c $< -o $@
+
+clean:
+	rm -f *.o
