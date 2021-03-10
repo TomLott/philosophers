@@ -20,4 +20,4 @@ $(NAME): $(OBJS)
 		gcc $(FLAGS) -c $< -o $@
 
 clean:
-	rm -f *.o
+	rm -f $(OBJS)

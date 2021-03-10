@@ -48,7 +48,6 @@ typedef struct	s_philo
 }				t_philo;
 
 
-
 void			*dead_status(void *p);
 long			get_time(void);
 void 			*full_status(void *p);

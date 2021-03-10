@@ -15,7 +15,7 @@ void	*ft_actions(void *p)
 		ft_eat(philo);
 		ft_message(" is sleeping\n", philo);
 		usleep(philo->ar->sleep_t);
-		ft_message(" is sleeping\n", philo);
+		ft_message(" is thinking\n", philo);
 	}
 	return (NULL);
 }
@@ -33,7 +33,7 @@ int		ft_start(t_philo *philo, t_args *ar)
 		if (fl < 0)
 			return (ft_error("Error: something went wrong "
 			"during thread creation.\n"));
-		usleep(20);
+		//usleep(50);
 	}
 	pthread_create(&run, NULL, &full_status, (void *)philo);
 	pthread_detach(run);

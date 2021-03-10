@@ -2,13 +2,16 @@
 
 void	ft_eat(t_philo *p)
 {
+	//long temp;
+
 	pthread_mutex_lock(p->l_fork);
-	ft_message(" has taken a fork\n", p);
 	pthread_mutex_lock(p->r_fork);
-	ft_message(" has taken a fork\n", p);
-	p->last = get_time();
+	ft_message(" has taken a forks\n", p);
 	ft_message(" is eating\n", p);
 	usleep(p->ar->eat_t);
+	p->last = get_time();
+	//temp = get_time();
+	//p->last = (temp + p->last) / 2;
 	pthread_mutex_lock(&p->mutex->mut_meals_amount);
 	p->ar->meals_amount++;
 	pthread_mutex_unlock(&p->mutex->mut_meals_amount);

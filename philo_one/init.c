@@ -47,12 +47,12 @@ int 		ft_init_mutex(t_args *ar, t_mutex *mut)
 {
 	int i;
 
-	i = 0;
+	i = -1;
 	mut->fork = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * ar->num);
 	if (!mut->fork)
 		return (1);
-	while (i < ar->num)
-		pthread_mutex_init(&mut->fork[i++], NULL);
+	while (++i < ar->num)
+		pthread_mutex_init(&mut->fork[i], NULL);
 	pthread_mutex_init(&mut->mut_wr, NULL);
 	pthread_mutex_init(&mut->mut_status, NULL);
 	pthread_mutex_init(&mut->mut_meals_amount, NULL);
@@ -75,7 +75,7 @@ t_philo		*ft_init_thr(t_args *ar, t_mutex *mut)
 		philo[i].id = i + 1;
 		philo[i].ar = ar;
 		philo[i].mutex = mut;
-		if (i > 1)
+		if (i < 1)
 			philo[i].r_fork = &mut->fork[ar->num - 1];
 		else
 			philo[i].r_fork = &mut->fork[i - 1];
