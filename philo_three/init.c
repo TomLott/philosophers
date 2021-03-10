@@ -7,7 +7,9 @@ void 	ft_finish(t_philo *p)
 	sem_close(p->sem->sem_meals_amount);
 	sem_close(p->sem->each_status);
 	sem_close(p->sem->global_status);
+	sem_close(p->sem->dead);
 	sem_unlink("fork");
+	sem_unlink("dead");
 	sem_unlink("sem_wr");
 	sem_unlink("meals_amount");
 	sem_unlink("each_status");
@@ -61,6 +63,8 @@ int 	ft_init_sem(t_args *ar, t_sem *sem)
 	sem_unlink("meals_amount");
 	sem_unlink("each_status");
 	sem_unlink("global_status");
+	sem_unlink("dead");
+	sem->dead = sem_open("dead", O_CREAT | O_EXCL, 0755, 1);
 	sem->fork = sem_open("fork", O_CREAT | O_EXCL, 0755, ar->num / 2);
 	sem->sem_wr = sem_open("sem_wr", O_CREAT | O_EXCL, 0755, 1);
 	sem->sem_meals_amount = sem_open("meals_amount", O_CREAT | O_EXCL, 0755, 0);
@@ -68,7 +72,7 @@ int 	ft_init_sem(t_args *ar, t_sem *sem)
 	sem->global_status = sem_open("global_status", O_CREAT | O_EXCL, 0755, 0);
 	if (sem->fork == SEM_FAILED || sem->sem_meals_amount == SEM_FAILED
 	|| sem->sem_wr == SEM_FAILED || sem->each_status == SEM_FAILED
-	|| sem->global_status == SEM_FAILED)
+	|| sem->global_status == SEM_FAILED || sem->dead == SEM_FAILED)
 		return (1);
 	return (0);
 }

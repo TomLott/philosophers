@@ -39,7 +39,7 @@ void 	*ft_full(void *philo)
 			p->ar->status = FULL;
 			sem_post(p->sem->each_status);
 			sem_post(p->sem->global_status);
-			usleep(100);
+			//usleep(100);
 			sem_wait(p->sem->sem_wr);
 			printf("All philosophers are full\n");
 			sem_post(p->sem->sem_wr);
@@ -58,11 +58,14 @@ void 	*ft_dead(void *philo)
 	{
 		if (get_time() > (p->last + p->ar->die_t))
 		{
+			sem_wait(p->sem->dead);
 			ft_message(" died\n", p);
 			p->ar->status = DEAD;
 			sem_post(p->sem->global_status);
 			sem_post(p->sem->each_status);
 			sem_post(p->sem->sem_meals_amount);
+			sem_close(p->sem->dead);
+			//sem_post(p->sem->dead);
 			//sem_post(p->sem->sem_wr);
 			//exit(1);
 			return (NULL);

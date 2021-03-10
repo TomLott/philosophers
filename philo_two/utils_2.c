@@ -6,9 +6,9 @@ void	ft_message(char *s, t_philo *philo)
 	if (s && philo && philo->ar->status == ALIVE)
 	{
 		ft_putnbr_fd((int)(get_time() - philo->start), 1);
-		ft_putstr_fd(" ms id ", 1);
+		write(1, " ms id ", 7);
 		ft_putnbr_fd(philo->id, 1);
-		ft_putstr_fd(s, 1);
+		write(1, s, ft_strlen(s));
 	}
 	sem_post(philo->sem->sem_wr);
 }

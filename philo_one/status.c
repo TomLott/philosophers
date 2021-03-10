@@ -3,13 +3,13 @@
 void 	*full_status(void *p)
 {
 	t_philo	*philo;
-	int 	limit;
+	long 	limit;
 	int 	i;
 
 	philo = (t_philo *)p;
 	limit = philo[0].ar->num * philo[0].ar->need_to_eat;
 	if (limit <= 0)
-		limit = 1000000000;
+		limit = 10000000000000;
 	while (philo[0].ar->status == ALIVE)
 	{
 		i = 0;

@@ -5,7 +5,7 @@ void 	ft_eat(t_philo *p)
 	sem_wait(p->sem->fork);
 	ft_message(" has taken forks\n", p);
 	ft_message(" is eating\n", p);
-	p->last = get_time();
+	//p->last = get_time();
 	usleep(p->ar->eat_t);
 	p->last = get_time();
 	p->ar->meals_amount++;

@@ -11,7 +11,6 @@ void	ft_eat(t_philo *p)
 	usleep(p->ar->eat_t);
 	p->last = get_time();
 	//temp = get_time();
-	//p->last = (temp + p->last) / 2;
 	pthread_mutex_lock(&p->mutex->mut_meals_amount);
 	p->ar->meals_amount++;
 	pthread_mutex_unlock(&p->mutex->mut_meals_amount);

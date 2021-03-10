@@ -25,6 +25,7 @@ typedef struct 	s_sem
 	sem_t		*sem_meals_amount;
 	sem_t		*each_status;
 	sem_t		*global_status;
+	sem_t		*dead;
 }				t_sem;
 
 typedef struct	s_args
