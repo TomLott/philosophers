@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   threads.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: itollett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/11 13:38:11 by itollett          #+#    #+#             */
+/*   Updated: 2021/03/11 13:38:12 by itollett         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo_one.h"
 
 void	*ft_actions(void *p)
@@ -33,7 +45,6 @@ int		ft_start(t_philo *philo, t_args *ar)
 		if (fl < 0)
 			return (ft_error("Error: something went wrong "
 			"during thread creation.\n"));
-		//usleep(50);
 	}
 	pthread_create(&run, NULL, &full_status, (void *)philo);
 	pthread_detach(run);

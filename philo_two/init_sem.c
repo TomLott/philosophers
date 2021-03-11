@@ -1,21 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_sem.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: itollett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/11 12:32:46 by itollett          #+#    #+#             */
+/*   Updated: 2021/03/11 12:32:47 by itollett         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo_two.h"
 
-int 		ft_init_sem(t_args *ar, t_semafor *semafor)
+int			ft_init_sem(t_args *ar, t_semafor *semafor)
 {
 	sem_unlink("fork");
 	semafor->fork = sem_open("fork", O_CREAT | O_EXCL, 0755, ar->num / 2);
 	sem_unlink("write");
 	semafor->sem_wr = sem_open("write", O_CREAT | O_EXCL, 0755, 1);
 	sem_unlink("meals_counter");
-	semafor->sem_meals_amount = sem_open("meals_counter", O_CREAT | O_EXCL, 0755, 1);
-	if (semafor->fork == SEM_FAILED || semafor->sem_meals_amount == SEM_FAILED || semafor->sem_wr == SEM_FAILED)
+	semafor->sem_meals_amount = sem_open("meals_counter", O_CREAT | O_EXCL,
+		0755, 1);
+	if (semafor->fork == SEM_FAILED ||
+	semafor->sem_meals_amount == SEM_FAILED ||
+	semafor->sem_wr == SEM_FAILED)
 		return (1);
 	return (0);
 }
 
 t_philo		*ft_init_thread(t_args *ar, t_semafor *sem)
 {
-	t_philo *p;
+	t_philo	*p;
 	int		i;
 
 	i = -1;

@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: itollett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/11 13:37:44 by itollett          #+#    #+#             */
+/*   Updated: 2021/03/11 13:37:45 by itollett         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo_one.h"
 
 static int	check_args(char **s)
 {
-	int		i;
-	int 	j;
+	int	i;
+	int	j;
 
 	i = 1;
 	while (s[i])
@@ -43,7 +55,7 @@ int			ft_init(t_args *ar, char **s)
 	return (0);
 }
 
-int 		ft_init_mutex(t_args *ar, t_mutex *mut)
+int			ft_init_mutex(t_args *ar, t_mutex *mut)
 {
 	int i;
 
@@ -59,12 +71,10 @@ int 		ft_init_mutex(t_args *ar, t_mutex *mut)
 	return (0);
 }
 
-
-
 t_philo		*ft_init_thr(t_args *ar, t_mutex *mut)
 {
 	t_philo	*philo;
-	int 	i;
+	int		i;
 
 	i = -1;
 	philo = (t_philo *)malloc(sizeof(t_philo) * ar->num);

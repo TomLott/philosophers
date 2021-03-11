@@ -1,11 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo_three.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: itollett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/11 11:59:55 by itollett          #+#    #+#             */
+/*   Updated: 2021/03/11 11:59:57 by itollett         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo_three.h"
 
-void 	ft_eat(t_philo *p)
+void	ft_eat(t_philo *p)
 {
 	sem_wait(p->sem->fork);
 	ft_message(" has taken forks\n", p);
 	ft_message(" is eating\n", p);
-	//p->last = get_time();
 	usleep(p->ar->eat_t);
 	p->last = get_time();
 	p->ar->meals_amount++;
@@ -13,10 +24,10 @@ void 	ft_eat(t_philo *p)
 	sem_post(p->sem->sem_meals_amount);
 }
 
-int 	ft_action(t_philo *p)
+int		ft_action(t_philo *p)
 {
 	pthread_t		status;
-	pthread_t 		dead_status;
+	pthread_t		dead_status;
 
 	pthread_create(&dead_status, NULL, &ft_dead, (void *)p);
 	pthread_detach(dead_status);
@@ -32,9 +43,9 @@ int 	ft_action(t_philo *p)
 	return (0);
 }
 
-void 	ft_start(t_philo *p, t_args *ar)
+void	ft_start(t_philo *p, t_args *ar)
 {
-	int 			i;
+	int				i;
 	pthread_t		status[2];
 
 	i = -1;
@@ -63,13 +74,13 @@ void 	ft_start(t_philo *p, t_args *ar)
 
 int		main(int argc, char **argv)
 {
-	t_philo philo;
+	t_philo	philo;
 	t_args	ar;
-	t_sem 	sem;
-	int 	temp;
+	t_sem	sem;
+	int		temp;
 
 	if (argc < 5)
-		return(ft_error("Error: not enough arguments\n"));
+		return (ft_error("Error: not enough arguments\n"));
 	else
 	{
 		temp = ft_init_args(argv, &ar);
@@ -83,7 +94,6 @@ int		main(int argc, char **argv)
 			return (1);
 		ft_start(&philo, &ar);
 		ft_finish(&philo);
-
 	}
 	return (0);
 }

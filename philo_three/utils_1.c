@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_1.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: itollett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/11 12:00:14 by itollett          #+#    #+#             */
+/*   Updated: 2021/03/11 12:00:15 by itollett         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo_three.h"
 
 long	get_time(void)
@@ -16,7 +28,7 @@ void	ft_putstr_fd(char *s, int fd)
 		write(fd, s, ft_strlen(s));
 }
 
-int 	ft_error(char *str)
+int		ft_error(char *str)
 {
 	ft_putstr_fd(str, 2);
 	return (1);
@@ -54,5 +66,5 @@ long	stup_atoi(char *num)
 		fl = 1;
 	if (fl != 1 && i == len && i != 0)
 		return (sign * res);
-	return  (if_not(num));
+	return (if_not(num));
 }

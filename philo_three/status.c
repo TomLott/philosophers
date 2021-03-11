@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   status.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: itollett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/11 12:00:07 by itollett          #+#    #+#             */
+/*   Updated: 2021/03/11 12:00:09 by itollett         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo_three.h"
 
-
-void 	*ft_status_child(void *philo)
+void	*ft_status_child(void *philo)
 {
 	t_philo		*p;
 
@@ -12,7 +23,7 @@ void 	*ft_status_child(void *philo)
 	return (NULL);
 }
 
-void 	*ft_status_parent(void *philo)
+void	*ft_status_parent(void *philo)
 {
 	t_philo		*p;
 
@@ -22,9 +33,9 @@ void 	*ft_status_parent(void *philo)
 	return (NULL);
 }
 
-void 	*ft_full(void *philo)
+void	*ft_full(void *philo)
 {
-	int 	res;
+	int		res;
 	t_philo *p;
 
 	p = (t_philo *)philo;
@@ -47,7 +58,7 @@ void 	*ft_full(void *philo)
 	return (NULL);
 }
 
-void 	*ft_dead(void *philo)
+void	*ft_dead(void *philo)
 {
 	t_philo		*p;
 

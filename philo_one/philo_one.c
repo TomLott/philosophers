@@ -1,16 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo_one.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: itollett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/11 13:37:52 by itollett          #+#    #+#             */
+/*   Updated: 2021/03/11 13:37:54 by itollett         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo_one.h"
 
 void	ft_eat(t_philo *p)
 {
-	//long temp;
-
 	pthread_mutex_lock(p->l_fork);
 	pthread_mutex_lock(p->r_fork);
 	ft_message(" has taken a forks\n", p);
 	ft_message(" is eating\n", p);
 	usleep(p->ar->eat_t);
 	p->last = get_time();
-	//temp = get_time();
 	pthread_mutex_lock(&p->mutex->mut_meals_amount);
 	p->ar->meals_amount++;
 	pthread_mutex_unlock(&p->mutex->mut_meals_amount);

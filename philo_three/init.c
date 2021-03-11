@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: itollett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/11 12:00:31 by itollett          #+#    #+#             */
+/*   Updated: 2021/03/11 12:00:32 by itollett         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo_three.h"
 
-void 	ft_finish(t_philo *p)
+void	ft_finish(t_philo *p)
 {
 	sem_close(p->sem->fork);
 	sem_close(p->sem->sem_wr);
@@ -16,7 +28,7 @@ void 	ft_finish(t_philo *p)
 	sem_unlink("global_status");
 }
 
-int 	ft_check_arg(char **s)
+int		ft_check_arg(char **s)
 {
 	int i;
 	int j;
@@ -56,7 +68,7 @@ int		ft_init_args(char **argv, t_args *ar)
 	return (0);
 }
 
-int 	ft_init_sem(t_args *ar, t_sem *sem)
+int		ft_init_sem(t_args *ar, t_sem *sem)
 {
 	sem_unlink("fork");
 	sem_unlink("sem_wr");

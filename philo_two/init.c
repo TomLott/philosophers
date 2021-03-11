@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: itollett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/11 12:32:40 by itollett          #+#    #+#             */
+/*   Updated: 2021/03/11 12:32:41 by itollett         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo_two.h"
 
-int 	ft_check_arg(char **s)
+int		ft_check_arg(char **s)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	if (!s || !s[0])
@@ -39,5 +51,3 @@ int		ft_init_args(char **argv, t_args *ar)
 		ar->need_to_eat = stup_atoi(argv[5]);
 	return (0);
 }
-
-
