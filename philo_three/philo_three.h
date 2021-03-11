@@ -62,7 +62,7 @@ size_t		ft_strlen(const char *string);
 int			ft_init_args(char **argv, t_args *ar);
 int 		ft_check_arg(char **s);
 int 		ft_init_sem(t_args *ar, t_sem *sem);
-void		*ft_last_init(t_args *ar, t_sem *sem, t_philo *p);
+int 		ft_last_init(t_args *ar, t_sem *sem, t_philo *p);
 void 		*ft_dead(void *philo);
 void 		*ft_full(void *);
 void 		*ft_status_child(void *philo);

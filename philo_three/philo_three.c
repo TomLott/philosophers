@@ -35,14 +35,12 @@ int 	ft_action(t_philo *p)
 void 	ft_start(t_philo *p, t_args *ar)
 {
 	int 			i;
-	pthread_t		status;
-	pthread_t		run;
+	pthread_t		status[2];
 
 	i = -1;
 	while (++i < ar->num)
 	{
 		p->pid[i] = fork();
-
 		if (p->pid[i] == 0)
 		{
 			p->id = i + 1;
@@ -52,10 +50,10 @@ void 	ft_start(t_philo *p, t_args *ar)
 		else if (p->pid[i] == -1)
 			return ;
 	}
-	pthread_create(&run, NULL, ft_full, p);
-	pthread_create(&status, NULL, ft_status_parent, (void *)p);
-	pthread_join(run, NULL);
-	pthread_join(status, NULL);
+	pthread_create(&status[1], NULL, ft_full, p);
+	pthread_create(&status[0], NULL, ft_status_parent, (void *)p);
+	pthread_join(status[1], NULL);
+	pthread_join(status[0], NULL);
 	i = -1;
 	waitpid(-1, NULL, 0);
 	while (++i < ar->num)
@@ -80,7 +78,9 @@ int		main(int argc, char **argv)
 		temp = ft_init_sem(&ar, &sem);
 		if (temp)
 			return (1);
-		ft_last_init(&ar, &sem, &philo);
+		temp = ft_last_init(&ar, &sem, &philo);
+		if (temp)
+			return (1);
 		ft_start(&philo, &ar);
 		ft_finish(&philo);
 

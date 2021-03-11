@@ -77,14 +77,14 @@ int 	ft_init_sem(t_args *ar, t_sem *sem)
 	return (0);
 }
 
-void	*ft_last_init(t_args *ar, t_sem *sem, t_philo *p)
+int		ft_last_init(t_args *ar, t_sem *sem, t_philo *p)
 {
 	p->pid = (pid_t *)malloc(sizeof(pid_t) * ar->num);
 	if (!p->pid)
-		return (NULL);
+		return (1);
 	p->ar = ar;
 	p->sem = sem;
 	p->start = get_time();
 	p->last = get_time();
-	return (NULL);
+	return (0);
 }
