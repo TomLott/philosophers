@@ -48,7 +48,7 @@ void	*dead_status(void *p)
 	philo = (t_philo *)p;
 	while (philo->ar->status == ALIVE)
 	{
-		if (get_time() > (philo->last + philo->ar->die_t) + 1)
+		if (get_time() > (philo->last + philo->ar->die_t) + 5)
 		{
 			ft_message(" dead\n", philo);
 			pthread_mutex_lock(&philo->mutex->mut_status);

@@ -3,7 +3,6 @@ NAME = philo_three
 FLAGS = -Wall -Werror -Wextra
 
 SRCS = init.c \
-		ft_strcmp.c \
 		philo_three.c \
 		status.c \
 		utils_1.c \
@@ -21,3 +20,10 @@ $(NAME): $(OBJS)
 
 clean:
 	rm -f $(OBJS)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY:	fclean all re clean

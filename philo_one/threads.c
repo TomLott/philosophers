@@ -21,7 +21,7 @@ void	*ft_actions(void *p)
 	pthread_create(&status, NULL, dead_status, (void *)philo);
 	pthread_detach(status);
 	if (philo->id % 2 != 0)
-		usleep(philo->ar->sleep_t);
+		usleep(philo->ar->eat_t / 2);
 	while (philo->ar->status == ALIVE)
 	{
 		ft_eat(philo);
